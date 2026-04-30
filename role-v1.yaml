@@ -3,12 +3,12 @@ kind: Role
 metadata:
   namespace: roboshop
   name: roboshop-junior
-role:
+rules:
  - apiGroups: [""]
    resources: ["pods"]
    verbs: ["get","list","watch"]
  - apiGroups: ["apps"]
-   resources: ["deployment"]
+   resources: ["deployments"]
    verbs: ["get","list","watch","create","update"]
 
 --- 
@@ -22,7 +22,7 @@ subjects:
   name: cnu 
   apiGroup: rbac.authorization.k8s.io
 roleRef:
-- kind: Role
+  kind: Role
   name: roboshop-junior
   apiGroup: rbac.authorization.k8s.io
   
