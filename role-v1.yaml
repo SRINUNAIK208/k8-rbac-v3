@@ -1,0 +1,28 @@
+apiVersion: rbac.authorization.k8s.io/v1 
+kind: Role 
+metadata:
+  namespace: roboshop
+  name: roboshop-junior
+role:
+ - apiGroups: [""]
+   resources: ["pods"]
+   verbs: ["get","list","watch"]
+ - apiGroups: ["apps"]
+   resources: ["deployment"]
+   verbs: ["get","list","watch","create","update"]
+
+--- 
+apiVersion: rbac.authorization.k8s.io/v1 
+kind: RoleBinding
+metadata:
+  namespace: roboshop
+  name: roboshop-junior
+subjects:
+- kind: User
+  name: cnu 
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+- kind: Role
+  name: roboshop-junior
+  apiGroup: rbac.authorization.k8s.io
+  
