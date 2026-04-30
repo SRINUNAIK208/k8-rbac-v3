@@ -2,9 +2,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role 
 metadata:
    name: roboshop-trainee
-   name: roboshop 
+   namespace: roboshop 
 rules:
-- apiGroups: [" "] 
+- apiGroups: [""] 
   resources: ["pods"]
   verbs: ["get", "list","watch"]
 
@@ -15,7 +15,7 @@ kind: RoleBinding
 metadata:
    name: roboshop-trainee
    name: roboshop 
-subject:
+subjects:
 - kind: User 
   name: cnu 
   apiGroup: rbac.authorization.k8s.io
