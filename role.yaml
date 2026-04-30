@@ -19,7 +19,7 @@ subjects:
 - kind: User 
   name: cnu 
   apiGroup: rbac.authorization.k8s.io
-ruleRef:
+roleRef:
   kind: Role
   name: roboshop-trainee
   apiGroup: rbac.authorization.k8s.io
